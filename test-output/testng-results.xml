@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-12-14T09:45:09 EST" name="Suite" finished-at="2023-12-14T09:45:23 EST" duration-ms="14592">
+    <groups>
+    </groups>
+    <test started-at="2023-12-14T09:45:09 EST" name="ChromeTest" finished-at="2023-12-14T09:45:23 EST" duration-ms="14592">
+      <class name="scrapper.Hypothyroidism">
+        <test-method signature="filterRecipes()[pri:0, instance:scrapper.Hypothyroidism@50ecde95]" started-at="2023-12-14T09:45:16 EST" name="filterRecipes" finished-at="2023-12-14T09:45:23 EST" duration-ms="7297" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- filterRecipes -->
+      </class> <!-- scrapper.Hypothyroidism -->
+      <class name="scrapper.BaseClass">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@2002348]" started-at="2023-12-14T09:45:09 EST" name="setup" finished-at="2023-12-14T09:45:16 EST" duration-ms="7216" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+      </class> <!-- scrapper.BaseClass -->
+    </test> <!-- ChromeTest -->
+  </suite> <!-- Suite -->
+</testng-results>
