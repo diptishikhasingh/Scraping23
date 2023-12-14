@@ -50,6 +50,8 @@ public class BaseClass {
 			{
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver();
+//				chromeoptions.addArguments("--headless");
+//				WebDriver driver = new ChromeDriver(chromeoptions);
 				logger.info("********************Chrome Launched*********************");
 				
 			}
@@ -60,8 +62,9 @@ public class BaseClass {
 				driver=new EdgeDriver();
 				logger.info("********************Edge Launched*********************");
 			}
-		
-			driver.get("https://www.tarladalal.com/");
+			
+//			driver.get("https://www.tarladalal.com/");
+			driver.get("https://www.tarladalal.com/recipes-for-hypothyroidism-veg-diet-indian-recipes-849");
 			driver.manage().window().maximize();
 			
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
