@@ -6,7 +6,7 @@
     <classes>
       <class name="scrapper.Hypothyroidism">
         <methods>
-          <include name="checkHypothyroidism"/>
+          <include name="filterRecipes"/>
           <include name="setup"/>
         </methods>
       </class> <!-- scrapper.Hypothyroidism -->
