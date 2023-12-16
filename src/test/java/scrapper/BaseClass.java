@@ -63,12 +63,12 @@ public class BaseClass {
 				logger.info("********************Edge Launched*********************");
 			}
 			
-//			driver.get("https://www.tarladalal.com/");
-			driver.get("https://www.tarladalal.com/recipes-for-hypothyroidism-veg-diet-indian-recipes-849");
+			driver.get("https://www.tarladalal.com/");
+//			driver.get("https://www.tarladalal.com/recipes-for-hypothyroidism-veg-diet-indian-recipes-849");
 			driver.manage().window().maximize();
 			
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
-			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+//			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
+//			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 			logger.info("********************Taraladalal Website Launched*********************");
 		}
 
