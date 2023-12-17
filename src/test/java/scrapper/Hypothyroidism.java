@@ -1,6 +1,7 @@
 package scrapper;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -23,25 +24,24 @@ public class Hypothyroidism extends BaseClass{
 
 	static XLManager XLManagerOBJ=new XLManager(".//recipe.xlsx");
 	static WebDriverWait wait;
-//	static JavascriptExecutor js;
-	
+
 	public static String toEliminateIngredients="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy";
+	public static String toEliminateRecipeName="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Cake|pastries|pastry|Fried|fry|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy";
 	static boolean matchFound=false;
-	public static String toEliminateRecipeName="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Cake|pastries|pastry|Fried|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy";
 	@Test
 	public static void filterRecipes() throws IOException{
 		
 		driver.findElement(By.xpath("//div[contains(text(),'RECIPES')]")).click();
 		String url = driver.getCurrentUrl();
 		Assert.assertEquals(url, "https://www.tarladalal.com/RecipeCategories.aspx" );
-		System.out.println("URL matching --> Part executed" + url);
+		System.out.println("Checking URL");
 		
 		WebElement hypothyroidismLink = driver.findElement(By.partialLinkText("Hypothyroidism Diet")); 
 		hypothyroidismLink .click();
 		
 		String urltoht = driver.getCurrentUrl();
 		Assert.assertEquals(urltoht, "https://www.tarladalal.com/recipes-for-hypothyroidism-veg-diet-indian-recipes-849" );
-		System.out.println("URL matching --> Part executed" + urltoht);
+		System.out.println("Checking URL hypothyroidism");
 		
 		try {
 		
@@ -60,7 +60,6 @@ public class Hypothyroidism extends BaseClass{
 		}
 		
 		String ParentWindow = driver.getWindowHandle();
-		// iterate pages
 		List <WebElement> pages=driver.findElements(By.xpath("//div[@id='pagination']/a"));
 		int len=pages.size();
 		String page;
@@ -70,11 +69,7 @@ public class Hypothyroidism extends BaseClass{
 
 			driver.findElement(By.xpath(page)).click();
 
-			try {
-				Thread.sleep(2000);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 			List <WebElement> htRecipeCards;
 
@@ -84,42 +79,37 @@ public class Hypothyroidism extends BaseClass{
 				
 				matchFound=false;
 				
-				System.out.println(htRecipeCard.getAttribute("id"));
+//				System.out.println(htRecipeCard.getAttribute("id"));
 		        WebElement recipieEle = htRecipeCard.findElement(By.xpath("//*[@id=\""+htRecipeCard.getAttribute("id")+"\"]//*[@class=\"rcc_rcpno\"]"));
-//			        System.out.println("Recipie Id: "+recipieEle.getText().lines().findFirst().get());
 		        String recipieId= recipieEle.getText().lines().findFirst().get();
 		        WebElement recipieNameEle = htRecipeCard.findElement(By.xpath("//*[@id=\""+htRecipeCard.getAttribute("id")+"\"]//*[@class=\"rcc_recipename\"]//*[@itemprop='url']"));
-//			        System.out.println("Recipie Name: "+recipieNamEle.getText());
 		        String recipieName= recipieNameEle.getText();
+		        String recipieUrl = recipieNameEle.getAttribute("href");
 		        
             	 Pattern searchToEliminateName=Pattern.compile(toEliminateRecipeName,Pattern.CASE_INSENSITIVE);
-//	            	 System.out.println(ing);
             	 Matcher matchName=searchToEliminateName.matcher(recipieName);
             	 if(matchName.find()) {
-            		 System.out.println("****************** TO ELIMINATE **************************************");
-            		 matchFound=true;
-            		 continue;
+            		System.out.println("****************** TO ELIMINATE **************************************");
+     			    System.out.println("Recipie Name: "+recipieNameEle.getText());
+     			    System.out.println("Recipie Url: "+recipieUrl);
+            		matchFound=true;
+            		continue;
             	 }
 		        
-		        String recipieUrl = recipieNameEle.getAttribute("href");
-			        System.out.println("Recipie Url: "+recipieUrl);
 	             driver.switchTo().newWindow(WindowType.TAB);
 	             driver.navigate().to(recipieUrl);
 	             WebElement singleRecipiePage = driver.findElement(By.id("maincontent"));
 	             WebElement prepTimeEle = singleRecipiePage.findElement(By.xpath("//*[@itemprop=\"prepTime\"]"));
-	//		             System.out.println("Preparation Time: "+prepTimeEle.getText());
 	             String preparationTime= prepTimeEle.getText();
 	             WebElement cookTimeEle = singleRecipiePage.findElement(By.xpath("//*[@itemprop=\"cookTime\"]"));
 	             String cookingTime =cookTimeEle.getText();
 		             
 	             List<WebElement> ingredients = singleRecipiePage.findElements(By.xpath("//*[@id=\"rcpinglist\"]//*[@itemprop=\"recipeIngredient\"]"));
 	             
-	             System.out.println("--Ingredients---");
 	             String ingredientsForExcel="";
 	             for(WebElement ingdnt : ingredients) {
 	            	 Pattern searchToEliminateIngredients=Pattern.compile(toEliminateIngredients,Pattern.CASE_INSENSITIVE);
 	            	 String ing=ingdnt.getText();
-//	            	 System.out.println(ing);
 	            	 Matcher matchIngredients=searchToEliminateIngredients.matcher(ing);
 	            	 if(matchIngredients.find()) {
 	            		 System.out.println("****************** TO ELIMINATE **************************************");
@@ -128,7 +118,6 @@ public class Hypothyroidism extends BaseClass{
 	            	 }
 	            	 ingredientsForExcel+=ingdnt.getText()+"    ";
 	             }
-	             System.out.println("----------------");
 	             
 	             List<WebElement> preparationMethods = singleRecipiePage.findElements(By.id("recipe_small_steps"));
 	             String preparation="";
@@ -140,10 +129,7 @@ public class Hypothyroidism extends BaseClass{
 	             String nutrients="";
 	             try {
 		             WebElement nutrientsData = singleRecipiePage.findElement(By.id("rcpnuts"));
-		             System.out.println("--Nutritional Values---");
-	//		             System.out.println(nutrientsData.getText());
 		             nutrients=nutrientsData.getText();
-		             System.out.println("----------------");
 	            
 	             } catch (Exception e) {
 		    			e.printStackTrace();
