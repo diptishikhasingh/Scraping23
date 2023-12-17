@@ -1,16 +1,13 @@
 package scrapper;
 
-import java.time.Duration;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -22,34 +19,35 @@ public class BaseClass {
 	
 	ConfigReader config=new ConfigReader();
 
-	public String baseURL=config.getApplicationURL();
 	public static WebDriver driver;
-	FirefoxOptions firefoxoptions=new FirefoxOptions();
+	public static Logger logger;
+	//FirefoxOptions firefoxoptions=new FirefoxOptions();
 	ChromeOptions chromeoptions=new ChromeOptions();
-	EdgeOptions edgeoptions=new EdgeOptions();
-	public static Logger logger;	
+	//EdgeOptions edgeoptions=new EdgeOptions();	
 
+	
 	@Parameters("browser")
 	@BeforeTest
 	public void setup(String browser) throws Exception {
 
 		try {
+			
 			logger = LogManager.getLogger(getClass());
-			logger.info("Setting up test environment...");
+			logger.info("...Setting up test environment...");
 			
 			
 			if(browser.equalsIgnoreCase("firefox"))
 			{
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
-				logger.info("********************FireFox Launched*********************");
-	            
-
+				logger.info("********************FireFox Launched*********************");            
 			}
+			
 			else if(browser.equalsIgnoreCase("chrome"))
 			{
 				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
+				chromeoptions.addArguments("headless");
+				driver = new ChromeDriver(chromeoptions);								
 				logger.info("********************Chrome Launched*********************");
 				
 			}
@@ -61,20 +59,19 @@ public class BaseClass {
 				logger.info("********************Edge Launched*********************");
 			}
 		
-			driver.get("https://www.tarladalal.com/");
+			//driver.get("https://www.tarladalal.com/");
+			driver.get(config.getURL());
 			driver.manage().window().maximize();
 			
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
-			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-			logger.info("********************Taraladalal Website Launched*********************");
-		}
+			System.out.println("Title is : "+driver.getCurrentUrl());
+			Assert.assertEquals(driver.getCurrentUrl(),"https://www.tarladalal.com/");
+			logger.info("************Taraladalal Website Launched****************");
+			}
 
 			catch (Exception e) {
 				logger.error("Error in Test:",e);
 				throw e;
-
 			}
-
 	}
 	
 	@AfterTest
