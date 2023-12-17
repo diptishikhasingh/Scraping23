@@ -2,18 +2,18 @@
 <testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-16T01:44:13 EST" name="Suite" finished-at="2023-12-16T01:49:51 EST" duration-ms="337699">
+  <suite started-at="2023-12-16T19:22:57 EST" name="Suite" finished-at="2023-12-16T19:30:49 EST" duration-ms="472638">
     <groups>
     </groups>
-    <test started-at="2023-12-16T01:44:13 EST" name="ChromeTest" finished-at="2023-12-16T01:49:51 EST" duration-ms="337699">
+    <test started-at="2023-12-16T19:22:57 EST" name="ChromeTest" finished-at="2023-12-16T19:30:49 EST" duration-ms="472638">
       <class name="scrapper.Hypothyroidism">
-        <test-method signature="filterRecipes()[pri:0, instance:scrapper.Hypothyroidism@299321e2]" started-at="2023-12-16T01:44:20 EST" name="filterRecipes" finished-at="2023-12-16T01:49:51 EST" duration-ms="330775" status="PASS">
+        <test-method signature="filterRecipes()[pri:0, instance:scrapper.Hypothyroidism@299321e2]" started-at="2023-12-16T19:23:05 EST" name="filterRecipes" finished-at="2023-12-16T19:30:49 EST" duration-ms="464231" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- filterRecipes -->
       </class> <!-- scrapper.Hypothyroidism -->
       <class name="scrapper.BaseClass">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@2002348]" started-at="2023-12-16T01:44:13 EST" name="setup" finished-at="2023-12-16T01:44:20 EST" duration-ms="6871" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@2002348]" started-at="2023-12-16T19:22:57 EST" name="setup" finished-at="2023-12-16T19:23:05 EST" duration-ms="8362" status="PASS">
           <params>
             <param index="0">
               <value>

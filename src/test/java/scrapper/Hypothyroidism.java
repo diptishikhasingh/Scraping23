@@ -3,6 +3,8 @@ package scrapper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -22,15 +24,18 @@ public class Hypothyroidism extends BaseClass{
 	static XLManager XLManagerOBJ=new XLManager(".//recipe.xlsx");
 	static WebDriverWait wait;
 //	static JavascriptExecutor js;
+	
+	public static final String toEliminate="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potatoe|Strawberries|Strawberry|Pine nut|Peanut|Peach|Green tea|Coffee|Alcohol|Gin|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Cake|pastries|pastry|Fried food|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|salad dressing|Candies|Candy";
+	static boolean matchFound=false;
 	@Test
-	public static void filterRecipes(){
+	public static void filterRecipes() throws IOException{
 		
 		driver.findElement(By.xpath("//div[contains(text(),'RECIPES')]")).click();
 		String url = driver.getCurrentUrl();
 		Assert.assertEquals(url, "https://www.tarladalal.com/RecipeCategories.aspx" );
 		System.out.println("URL matching --> Part executed" + url);
 		
-		WebElement hypothyroidismLink = driver.findElement(By.partialLinkText("Hypothyroidism Diet"));
+		WebElement hypothyroidismLink = driver.findElement(By.partialLinkText("Hypothyroidism Diet")); 
 		hypothyroidismLink .click();
 		
 		String urltoht = driver.getCurrentUrl();
@@ -39,16 +44,16 @@ public class Hypothyroidism extends BaseClass{
 		
 		try {
 		
-			XLManagerOBJ.setCellData("Sheet1",0,0,"Recipe ID");
-			XLManagerOBJ.setCellData("Sheet1",0,1,"Recipe Name");
-			XLManagerOBJ.setCellData("Sheet1",0,2,"Recipe Category(Breakfast/lunch/snack/dinner)");
-			XLManagerOBJ.setCellData("Sheet1",0,3,"Food Category(Veg/non-veg/vegan/Jain)");
-			XLManagerOBJ.setCellData("Sheet1",0,4,"Ingredients");
-			XLManagerOBJ.setCellData("Sheet1",0,5,"Preparation Time");
-			XLManagerOBJ.setCellData("Sheet1",0,6,"Cooking Time");
-			XLManagerOBJ.setCellData("Sheet1",0,7,"Preparation method");
-			XLManagerOBJ.setCellData("Sheet1",0,8,"Nutrient values");
-			XLManagerOBJ.setCellData("Sheet1",0,9,"Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,0,"Recipe ID");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,1,"Recipe Name");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,2,"Recipe Category(Breakfast/lunch/snack/dinner)");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,3,"Food Category(Veg/non-veg/vegan/Jain)");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,4,"Ingredients");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,5,"Preparation Time");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,6,"Cooking Time");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,7,"Preparation method");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,8,"Nutrient values");
+			XLManagerOBJ.setCellData("Hypothyroidism",0,9,"Targetted morbid conditions (Diabeties/Hypertension/Hypothyroidism)");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +80,9 @@ public class Hypothyroidism extends BaseClass{
 			htRecipeCards=driver.findElements(By.xpath("//article[@class='rcc_recipecard']"));
 
 			for(WebElement htRecipeCard : htRecipeCards ) {
+				
+				matchFound=false;
+				
 				System.out.println(htRecipeCard.getAttribute("id"));
 		        WebElement recipieEle = htRecipeCard.findElement(By.xpath("//*[@id=\""+htRecipeCard.getAttribute("id")+"\"]//*[@class=\"rcc_rcpno\"]"));
 //			        System.out.println("Recipie Id: "+recipieEle.getText().lines().findFirst().get());
@@ -98,7 +106,15 @@ public class Hypothyroidism extends BaseClass{
 	             System.out.println("--Ingredients---");
 	             String ingredientsForExcel="";
 	             for(WebElement ingdnt : ingredients) {
-	            	 System.out.println(ingdnt.getText());
+	            	 Pattern searchToEliminate=Pattern.compile(toEliminate,Pattern.CASE_INSENSITIVE);
+	            	 String ing=ingdnt.getText();
+//	            	 System.out.println(ing);
+	            	 Matcher match=searchToEliminate.matcher(ing);
+	            	 if(match.find()) {
+	            		 System.out.println("****************** TO ELIMINATE **************************************");
+	            		 matchFound=true;
+	            		 break;
+	            	 }
 	            	 ingredientsForExcel+=ingdnt.getText()+"    ";
 	             }
 	             System.out.println("----------------");
@@ -125,22 +141,22 @@ public class Hypothyroidism extends BaseClass{
 	             driver.close();            
 	             driver.switchTo().window(ParentWindow);
 	             
-		        try {
-		    			XLManagerOBJ.setCellData("Sheet1",row,0,recipieId);
-		    			XLManagerOBJ.setCellData("Sheet1",row,1,recipieName);
-		    			XLManagerOBJ.setCellData("Sheet1",row,2,"Recipe Category(Breakfast/lunch/snack/dinner)");
-		    			XLManagerOBJ.setCellData("Sheet1",row,3,"Food Category(Veg/non-veg/vegan/Jain)");
-			    		XLManagerOBJ.setCellData("Sheet1",row,4,ingredientsForExcel);
-		    			XLManagerOBJ.setCellData("Sheet1",row,5,preparationTime);
-		    			XLManagerOBJ.setCellData("Sheet1",row,6,cookingTime);
-			    		XLManagerOBJ.setCellData("Sheet1",row,7,preparation);
-			    		XLManagerOBJ.setCellData("Sheet1",row,8,nutrients);
-		    			XLManagerOBJ.setCellData("Sheet1",row,9,"Hypothyroidism)");
-		    			XLManagerOBJ.setCellData("Sheet1",row,10,recipieUrl);
-		    		} catch (IOException e) {
-		    			e.printStackTrace();
-		    		}
-		        	row++;
+	             if(!matchFound) {
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,0,recipieId);
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,1,recipieName);
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,2,"Recipe Category(Breakfast/lunch/snack/dinner)");
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,3,"Food Category(Veg/non-veg/vegan/Jain)");
+		    		XLManagerOBJ.setCellData("Hypothyroidism",row,4,ingredientsForExcel);
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,5,preparationTime);
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,6,cookingTime);
+		    		XLManagerOBJ.setCellData("Hypothyroidism",row,7,preparation);
+		    		XLManagerOBJ.setCellData("Hypothyroidism",row,8,nutrients);
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,9,"Hypothyroidism)");
+	    			XLManagerOBJ.setCellData("Hypothyroidism",row,10,recipieUrl);
+	    			
+			        row++;
+	             }
+		       
 			 }
 		}
 	}
