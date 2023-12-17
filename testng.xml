@@ -5,7 +5,7 @@
   <parameter name="browser" value="chrome" />
     <classes>
       <class name="scrapper.BaseClass"/>
-      <class name="scrapper.Hypothyroidism"/>
+		<class name="scrapper.Hypothyroidism"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

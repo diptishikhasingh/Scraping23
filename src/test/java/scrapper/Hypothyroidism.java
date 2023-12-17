@@ -25,8 +25,9 @@ public class Hypothyroidism extends BaseClass{
 	static WebDriverWait wait;
 //	static JavascriptExecutor js;
 	
-	public static final String toEliminate="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potatoe|Strawberries|Strawberry|Pine nut|Peanut|Peach|Green tea|Coffee|Alcohol|Gin|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Cake|pastries|pastry|Fried food|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|salad dressing|Candies|Candy";
+	public static String toEliminateIngredients="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy";
 	static boolean matchFound=false;
+	public static String toEliminateRecipeName="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Cake|pastries|pastry|Fried|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy";
 	@Test
 	public static void filterRecipes() throws IOException{
 		
@@ -90,8 +91,18 @@ public class Hypothyroidism extends BaseClass{
 		        WebElement recipieNameEle = htRecipeCard.findElement(By.xpath("//*[@id=\""+htRecipeCard.getAttribute("id")+"\"]//*[@class=\"rcc_recipename\"]//*[@itemprop='url']"));
 //			        System.out.println("Recipie Name: "+recipieNamEle.getText());
 		        String recipieName= recipieNameEle.getText();
+		        
+            	 Pattern searchToEliminateName=Pattern.compile(toEliminateRecipeName,Pattern.CASE_INSENSITIVE);
+//	            	 System.out.println(ing);
+            	 Matcher matchName=searchToEliminateName.matcher(recipieName);
+            	 if(matchName.find()) {
+            		 System.out.println("****************** TO ELIMINATE **************************************");
+            		 matchFound=true;
+            		 continue;
+            	 }
+		        
 		        String recipieUrl = recipieNameEle.getAttribute("href");
-//			        System.out.println("Recipie Url: "+recipieUrl);
+			        System.out.println("Recipie Url: "+recipieUrl);
 	             driver.switchTo().newWindow(WindowType.TAB);
 	             driver.navigate().to(recipieUrl);
 	             WebElement singleRecipiePage = driver.findElement(By.id("maincontent"));
@@ -106,14 +117,14 @@ public class Hypothyroidism extends BaseClass{
 	             System.out.println("--Ingredients---");
 	             String ingredientsForExcel="";
 	             for(WebElement ingdnt : ingredients) {
-	            	 Pattern searchToEliminate=Pattern.compile(toEliminate,Pattern.CASE_INSENSITIVE);
+	            	 Pattern searchToEliminateIngredients=Pattern.compile(toEliminateIngredients,Pattern.CASE_INSENSITIVE);
 	            	 String ing=ingdnt.getText();
 //	            	 System.out.println(ing);
-	            	 Matcher match=searchToEliminate.matcher(ing);
-	            	 if(match.find()) {
+	            	 Matcher matchIngredients=searchToEliminateIngredients.matcher(ing);
+	            	 if(matchIngredients.find()) {
 	            		 System.out.println("****************** TO ELIMINATE **************************************");
 	            		 matchFound=true;
-	            		 break;
+	            		 continue;
 	            	 }
 	            	 ingredientsForExcel+=ingdnt.getText()+"    ";
 	             }
