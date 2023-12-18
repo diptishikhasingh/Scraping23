@@ -10,14 +10,12 @@ import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import utilities.XLManager;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
 
 public class Hypothyroidism extends BaseClass{
 	
@@ -25,9 +23,10 @@ public class Hypothyroidism extends BaseClass{
 	static XLManager XLManagerOBJ=new XLManager(".//recipe.xlsx");
 	static WebDriverWait wait;
 
-	public static String toEliminateIngredients="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy";
-	public static String toEliminateRecipeName="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Cake|pastries|pastry|Fried|fry|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy";
+	public static String toEliminateIngredients="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy|Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
+	public static String toEliminateRecipeName="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Cake|pastries|pastry|Fried|fry|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy|Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|scallops|octopus|squid|abalone|snail|Seafood";
 	static boolean matchFound=false;
+	
 	@Test
 	public static void filterRecipes() throws IOException{
 		
@@ -60,7 +59,8 @@ public class Hypothyroidism extends BaseClass{
 		}
 		
 		String ParentWindow = driver.getWindowHandle();
-		List <WebElement> pages=driver.findElements(By.xpath("//div[@id='pagination']/a"));
+		List <WebElement> pages=new ArrayList();
+		pages=driver.findElements(By.xpath("//div[@id='pagination']/a"));
 		int len=pages.size();
 		String page;
 		int row=1;
@@ -104,7 +104,8 @@ public class Hypothyroidism extends BaseClass{
 	             WebElement cookTimeEle = singleRecipiePage.findElement(By.xpath("//*[@itemprop=\"cookTime\"]"));
 	             String cookingTime =cookTimeEle.getText();
 		             
-	             List<WebElement> ingredients = singleRecipiePage.findElements(By.xpath("//*[@id=\"rcpinglist\"]//*[@itemprop=\"recipeIngredient\"]"));
+	             List<WebElement> ingredients = new ArrayList<WebElement>();
+	             ingredients = singleRecipiePage.findElements(By.xpath("//*[@id=\"rcpinglist\"]//*[@itemprop=\"recipeIngredient\"]"));
 	             
 	             String ingredientsForExcel="";
 	             for(WebElement ingdnt : ingredients) {
@@ -112,17 +113,18 @@ public class Hypothyroidism extends BaseClass{
 	            	 String ing=ingdnt.getText();
 	            	 Matcher matchIngredients=searchToEliminateIngredients.matcher(ing);
 	            	 if(matchIngredients.find()) {
-	            		 System.out.println("****************** TO ELIMINATE **************************************");
+	            		 System.out.println("****************** TO ELIMINATE BY CHECKING INGREDIENTS **************************************");
 	            		 matchFound=true;
 	            		 continue;
 	            	 }
 	            	 ingredientsForExcel+=ingdnt.getText()+"    ";
 	             }
 	             
-	             List<WebElement> preparationMethods = singleRecipiePage.findElements(By.id("recipe_small_steps"));
+	             List<WebElement> preparationMethods = new ArrayList<WebElement>();
+	             preparationMethods = singleRecipiePage.findElements(By.id("recipe_small_steps"));
 	             String preparation="";
 	             for(WebElement preparationMethod : preparationMethods) {
-	            	 preparation+=preparationMethod.getText()+"    ";
+	            	 preparation+=", "+preparationMethod.getText();
 //	            	 preparation+=preparationMethod.getText()+"\r\n";
 	             }
 	             
