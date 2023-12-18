@@ -20,8 +20,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Hypothyroidism extends BaseClass{
 	
 
-	static XLManager XLManagerOBJ=new XLManager(".//recipe.xlsx");
-	static XLManager XLManagerOBJAllergy=new XLManager(".//recipeAllergy.xlsx");
+	static XLManager XLManagerOBJ=new XLManager("./src/test/resources/output/Hypothyroidism.xlsx");
+	static XLManager XLManagerOBJAllergy=new XLManager("./src/test/resources/output/HypothyroidismAllergy.xlsx");
 	static WebDriverWait wait;
 
 //	public static String toEliminateIngredients="Tofu|Edamame|Tempeh|Cauliflower|Cabbage|Broccoli|Kale|Spinach|Sweet potatoes|Sweet potato|Strawberries|Strawberry|Pine nut|Peanut|Peach|Coffee|Alcohol|Vodka|Whiskey|Rum|Brandy|Soy milk|White bread|Sugar|ham|bacon|salami|sausag|Gluten|Wheat|Barley|Rye|triticale|farina|noodles|soup|Candies|Candy|Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
@@ -32,8 +32,8 @@ public class Hypothyroidism extends BaseClass{
 	
 	static boolean matchFound=false;
 	
-	public static String toEliminateIngredientsAllergy="Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
-	public static String toEliminateRecipeNameAllergy="Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
+	public static String toEliminateIngredientsAllergy=toEliminateIngredients+"Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
+	public static String toEliminateRecipeNameAllergy=toEliminateRecipeName+"Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
 
 	public static void init() {
 		
