@@ -29,8 +29,8 @@ public class Hypothyroidism extends BaseClass{
 	
 	static boolean matchFound=false;
 	
-	public static String toEliminateIngredientsAllergy=toEliminateIngredients+"Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
-	public static String toEliminateRecipeNameAllergy=toEliminateRecipeName+"Milk|Soy|Egg|Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
+	public static String toEliminateIngredientsAllergy=toEliminateIngredients+"Milk|Soy|Egg |Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
+	public static String toEliminateRecipeNameAllergy=toEliminateRecipeName+"Milk|Soy|Egg |Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
 
 	public static String toAddIngredients="Saltwater fish|Tuna|Salmon|Wahoo|Red Snapper|Drum|Black drum|redfish|oyester|shellfish|Egg|Dairy|milk|Yogurt|Butter|Cheese|cream|Nut|Chicken|Pumpkin seed|Seaweed|Iodized salt|Brazil nut|Blue berry|Blue berries|Low-fat yogurt|Brown rice|quinoa|Mushroom";
 	public static String toAddRecipeName="Saltwater fish|Tuna|Salmon|Wahoo|Red Snapper|Drum|Black drum|redfish|oyester|shellfish|Egg|Dairy|milk|Yogurt|Butter|Cheese|cream|Nut|Chicken|Pumpkin seed|Seaweed|Iodized salt|Brazil nut|Blue berry|Blue berries|Low-fat yogurt|Brown rice|quinoa|Mushroom";
@@ -198,7 +198,6 @@ public class Hypothyroidism extends BaseClass{
 		
 		excelColumnHeading(XLManagerOBJ,"HypothyroidismAdd");
 		
-//		extractData(toAddIngredients,toAddRecipeName,XLManagerOBJ);
 		String ParentWindow = driver.getWindowHandle();
 		List <WebElement> pages=new ArrayList<WebElement>();
 		pages=driver.findElements(By.xpath("//div[@id='pagination']/a"));
@@ -234,7 +233,7 @@ public class Hypothyroidism extends BaseClass{
 	 			    System.out.println("Recipie Name: "+recipieNameEle.getText());
 	 			    System.out.println("Recipie Url: "+recipieUrl);
 	        		matchFound=true;
-	        		break;
+//	        		break;
 	        	 }
 		        
 	             driver.switchTo().newWindow(WindowType.TAB);
@@ -260,6 +259,7 @@ public class Hypothyroidism extends BaseClass{
 	            	 }
 	            	 ingredientsForExcel+=ingdnt.getText()+"    ";
 	             }
+	             
 	             
 	             List<WebElement> preparationMethods = new ArrayList<WebElement>();
 	             preparationMethods = singleRecipiePage.findElements(By.id("recipe_small_steps"));
