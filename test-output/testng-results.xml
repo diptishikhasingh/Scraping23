@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
+<testng-results ignored="1" total="4" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-18T10:02:29 EST" name="Suite" finished-at="2023-12-18T10:24:43 EST" duration-ms="1333709">
+  <suite started-at="2023-12-18T12:03:23 EST" name="Suite" finished-at="2023-12-18T12:15:49 EST" duration-ms="746188">
     <groups>
     </groups>
-    <test started-at="2023-12-18T10:02:29 EST" name="ChromeTest" finished-at="2023-12-18T10:24:43 EST" duration-ms="1333709">
+    <test started-at="2023-12-18T12:03:23 EST" name="ChromeTest" finished-at="2023-12-18T12:15:49 EST" duration-ms="746188">
       <class name="scrapper.Hypothyroidism">
-        <test-method signature="filterRecipes()[pri:0, instance:scrapper.Hypothyroidism@25a6944c]" started-at="2023-12-18T10:02:38 EST" name="filterRecipes" finished-at="2023-12-18T10:15:41 EST" duration-ms="783117" status="PASS">
+        <test-method signature="addRecipes()[pri:0, instance:scrapper.Hypothyroidism@5e1fa5b1]" started-at="2023-12-18T12:03:30 EST" name="addRecipes" finished-at="2023-12-18T12:05:36 EST" duration-ms="125241" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addRecipes -->
+        <test-method signature="filterRecipes()[pri:0, instance:scrapper.Hypothyroidism@5e1fa5b1]" started-at="2023-12-18T12:05:36 EST" name="filterRecipes" finished-at="2023-12-18T12:11:09 EST" duration-ms="332833" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- filterRecipes -->
-        <test-method signature="filterRecipesAllergies()[pri:0, instance:scrapper.Hypothyroidism@25a6944c]" started-at="2023-12-18T10:15:41 EST" name="filterRecipesAllergies" finished-at="2023-12-18T10:24:42 EST" duration-ms="541409" status="PASS">
+        <test-method signature="filterRecipesAllergies()[pri:0, instance:scrapper.Hypothyroidism@5e1fa5b1]" started-at="2023-12-18T12:11:09 EST" name="filterRecipesAllergies" finished-at="2023-12-18T12:15:49 EST" duration-ms="280377" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- filterRecipesAllergies -->
       </class> <!-- scrapper.Hypothyroidism -->
       <class name="scrapper.BaseClass">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@54c62d71]" started-at="2023-12-18T10:02:29 EST" name="setup" finished-at="2023-12-18T10:02:38 EST" duration-ms="9122" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@65045a87]" started-at="2023-12-18T12:03:23 EST" name="setup" finished-at="2023-12-18T12:03:30 EST" duration-ms="7658" status="PASS">
           <params>
             <param index="0">
               <value>
