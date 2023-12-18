@@ -2,22 +2,22 @@
 <testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-17T21:15:11 EST" name="Suite" finished-at="2023-12-17T21:23:47 EST" duration-ms="515105">
+  <suite started-at="2023-12-17T22:17:04 EST" name="Suite" finished-at="2023-12-17T22:28:01 EST" duration-ms="656894">
     <groups>
     </groups>
-    <test started-at="2023-12-17T21:15:11 EST" name="ChromeTest" finished-at="2023-12-17T21:23:47 EST" duration-ms="515105">
+    <test started-at="2023-12-17T22:17:04 EST" name="ChromeTest" finished-at="2023-12-17T22:28:01 EST" duration-ms="656894">
       <class name="scrapper.Hypothyroidism">
-        <test-method signature="filterRecipes()[pri:0, instance:scrapper.Hypothyroidism@23fb172e]" started-at="2023-12-17T21:15:18 EST" name="filterRecipes" finished-at="2023-12-17T21:19:18 EST" duration-ms="239641" status="PASS">
+        <test-method signature="filterRecipes()[pri:0, instance:scrapper.Hypothyroidism@25a6944c]" started-at="2023-12-17T22:17:12 EST" name="filterRecipes" finished-at="2023-12-17T22:22:32 EST" duration-ms="319891" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- filterRecipes -->
-        <test-method signature="filterRecipesAllergies()[pri:0, instance:scrapper.Hypothyroidism@23fb172e]" started-at="2023-12-17T21:19:18 EST" name="filterRecipesAllergies" finished-at="2023-12-17T21:23:47 EST" duration-ms="268904" status="PASS">
+        <test-method signature="filterRecipesAllergies()[pri:0, instance:scrapper.Hypothyroidism@25a6944c]" started-at="2023-12-17T22:22:32 EST" name="filterRecipesAllergies" finished-at="2023-12-17T22:28:01 EST" duration-ms="328614" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- filterRecipesAllergies -->
       </class> <!-- scrapper.Hypothyroidism -->
       <class name="scrapper.BaseClass">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@5911e990]" started-at="2023-12-17T21:15:11 EST" name="setup" finished-at="2023-12-17T21:15:18 EST" duration-ms="6476" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@54c62d71]" started-at="2023-12-17T22:17:04 EST" name="setup" finished-at="2023-12-17T22:17:12 EST" duration-ms="8328" status="PASS">
           <params>
             <param index="0">
               <value>
