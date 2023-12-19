@@ -22,24 +22,25 @@
     <artifactId>testng</artifactId>
     <version>7.7.1</version>
 </dependency>
+
  <!-- Apache POI for working with Excel -->
     <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
-        <version>5.2.3</version> <!-- Use the latest version available -->
+        <version>5.2.5</version> <!-- Use the latest version available -->
     </dependency>
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
-    <version>5.2.3</version>
+    <version>5.2.5</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 <dependency>
     <groupId>io.github.bonigarcia</groupId>
     <artifactId>webdrivermanager</artifactId>
-    <version>5.6.1</version>
+    <version>5.6.2</version>
 </dependency>
     <!-- Log4j API -->
     <dependency>

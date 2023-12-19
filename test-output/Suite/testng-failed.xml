@@ -4,9 +4,22 @@
   <test thread-count="5" name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="scrapper.Diabetes">
+        <methods>
+          <include name="diabetesRecipes"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- scrapper.Diabetes -->
+      <class name="scrapper.BaseClass">
+        <methods>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- scrapper.BaseClass -->
       <class name="scrapper.Hypothyroidism">
         <methods>
           <include name="filterRecipesAllergies"/>
+          <include name="addRecipes"/>
+          <include name="filterRecipes"/>
           <include name="setup"/>
         </methods>
       </class> <!-- scrapper.Hypothyroidism -->

@@ -6,6 +6,7 @@
     <classes>
       <class name="scrapper.BaseClass"/>
 		<class name="scrapper.Hypothyroidism"/>
+      <!--class name="scrapper.Diabetes" /-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

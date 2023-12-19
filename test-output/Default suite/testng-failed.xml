@@ -3,12 +3,22 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD:test-output/Default suite/testng-failed.xml
       <class name="scrapper.Hypothyroidism">
         <methods>
           <include name="addRecipes"/>
           <include name="setup"/>
         </methods>
       </class> <!-- scrapper.Hypothyroidism -->
+=======
+      <class name="scrapper.Diabetes">
+        <methods>
+          <include name="tearDown"/>
+          <include name="diabetesRecipes"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- scrapper.Diabetes -->
+>>>>>>> fe8b2d53c86363123ba6eebecc98327cb689c71b:Scraping23/test-output/Default suite/testng-failed.xml
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
