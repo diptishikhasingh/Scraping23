@@ -21,7 +21,7 @@ public class pcos  extends BaseClass{
 	
 	Logger logger = LogManager.getLogger(pcos.class);
 	
-	public static final String ELIMINATED_INGREDIENTS = "Cakes| Pastries|White bread|Whitebread|Fried food|Friedfood|dahi|Pizza|Burger|Carbonated beverages|Carbonatedbeverages|sugar|sweets|icecreams|soda|juices|Red meat|Redmeat|Processed meat|Processedmeat|milk|yogurt|yoghurt|low fat milk|Low fat Milk|Soy products|Soyproducts|Gluten|Pasta|White rice|Whiterice|Doughnuts|Fries|Coffee|vegetableoil|soybeanoil|canolaoil|rapeseedoil|sunfloweroil|saffloweroil|vegetable oil|soybean oil|canola oil|rapeseed oil|sunflower oil|safflower oil";
+	public static final String ELIMINATED_INGREDIENTS = "Cakes| Pastries|White bread|Whitebread|Fried food|Friedfood|dahi|Pizza|Burger|Carbonated beverages|Carbonatedbeverages|sugar|sweets|icecreams|soda|juices|Red meat|Redmeat|Processed meat|Processedmeat|milk|yogurt|yoghurt|curd|low fat milk|Low fat Milk|cheese|paneer|Maida|Soy products|Soyproducts|Gluten|Pasta|White rice|Whiterice|Doughnuts|Fries|Coffee|vegetableoil|soybeanoil|canolaoil|rapeseedoil|sunfloweroil|saffloweroil|vegetable oil|soybean oil|canola oil|rapeseed oil|sunflower oil|safflower oil";
 	public static final String GOOD_INGREDIENTS ="Broccoli|Brussels sprouts|Brusselssprouts|Asparagus|Artichokes|Acorn Squash|AcornSquash|Green Peas|GreenPeas|Turnip greens|Turnipgreens|Carrots|Cauliflower|Avacados|Apple|Strawberries|Banana|Raspberries|High fiber vegetables|High fiber fruits";
 			
 	public static final String RECIPE_CATEGORY="Breakfast|Lunch|Snack|Dinner";

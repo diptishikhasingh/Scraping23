@@ -42,7 +42,7 @@ public class DiabeticRecipesFromRecipeList extends BaseClass {
 	public static final String filteredRecipeFilePath = "src/test/resources/excelsheets/DiabeticRecipeFromRecipeList.xlsx";
 	public static final String eliminatedRecipeFilePath = "src/test/resources/excelsheets/DiabeticRecipeEliminatedFromRecipeList.xlsx";
 	public static final String nonAllergyRecipeFilePath = "src/test/resources/excelsheets/DiabeticRecipeNonAllergyFromRecipeList.xlsx";
-	public static final String allergyRecipeFilePath = "src/test/resources/excelsheets/ExcelData//DiabeticRecipeAllergyRecipesFromRecipeList.xlsx";
+	public static final String allergyRecipeFilePath = "src/test/resources/excelsheets/ExcelData/DiabeticRecipeAllergyRecipesFromRecipeList.xlsx";
 
 	@Test
 	public void anavigateToDiabetes() throws IOException {

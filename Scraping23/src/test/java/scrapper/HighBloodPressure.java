@@ -39,7 +39,7 @@ public class HighBloodPressure extends BaseClass {
 	public static final String filteredRecipeFilePath = "src/test/resources/excelsheets/hypertensionrecipe.xlsx";
 	public static final String eliminatedRecipeFilePath = "src/test/resources/excelsheets/hypertensionrecipeEliminated.xlsx";
 	public static final String nonAllergyRecipeFilePath = "src/test/resources/excelsheets/hypertensionrecipeNonAllergy.xlsx";
-	public static final String allergyRecipeFilePath = "src/test/resources/excelsheets/hypertensionrecipeAllergyRecipes.xlsx";
+	public static final String allergyRecipeFilePath = "src/test/resources/excelsheets/hypertensionrecipeAllergy.xlsx";
 
 	@Test
 	public void anavigateToHypertension() throws IOException {

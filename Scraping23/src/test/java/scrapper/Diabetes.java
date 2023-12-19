@@ -37,7 +37,7 @@ public class Diabetes extends BaseClass{
 		
 		
         //Loop for A To Z      
-        for(char eachAlphabet='A';eachAlphabet<='Z';eachAlphabet++) {
+        for(char eachAlphabet='A';eachAlphabet<='A';eachAlphabet++) {
         //for (WebElement eachAlphabet : alphabets){	
         	logger.info("****************Alphabet******************* : "+eachAlphabet);
 			//Pagination 		

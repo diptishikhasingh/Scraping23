@@ -2,29 +2,12 @@
 <testng-results ignored="2" total="3" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-19T01:18:19 CST" name="Suite" finished-at="2023-12-19T02:33:47 CST" duration-ms="4528360">
+  <suite started-at="2023-12-19T15:08:18 CST" name="Suite" finished-at="2023-12-19T15:47:13 CST" duration-ms="2335568">
     <groups>
     </groups>
-    <test started-at="2023-12-19T01:18:19 CST" name="ChromeTest" finished-at="2023-12-19T02:33:47 CST" duration-ms="4528360">
-      <class name="scrapper.BaseClass">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@305f7627]" started-at="2023-12-19T01:18:19 CST" name="setup" finished-at="2023-12-19T01:18:31 CST" duration-ms="11921" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:scrapper.BaseClass@305f7627]" started-at="2023-12-19T02:33:46 CST" name="tearDown" finished-at="2023-12-19T02:33:47 CST" duration-ms="1190" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- scrapper.BaseClass -->
-      <class name="scrapper.DiabetesAllergy">
-        <test-method signature="diabetesRecipes()[pri:0, instance:scrapper.DiabetesAllergy@73ff4fae]" started-at="2023-12-19T01:18:31 CST" name="diabetesRecipes" finished-at="2023-12-19T02:33:46 CST" duration-ms="4514907" status="FAIL">
+    <test started-at="2023-12-19T15:08:18 CST" name="ChromeTest" finished-at="2023-12-19T15:47:13 CST" duration-ms="2335568">
+      <class name="scrapper.Diabetes">
+        <test-method signature="diabetesRecipes()[pri:0, instance:scrapper.Diabetes@73ff4fae]" started-at="2023-12-19T15:08:26 CST" name="diabetesRecipes" finished-at="2023-12-19T15:47:12 CST" duration-ms="2326632" status="FAIL">
           <exception class="org.openqa.selenium.WebDriverException">
             <message>
               <![CDATA[disconnected: not connected to DevTools
@@ -33,9 +16,9 @@
 Build info: version: '4.16.1', revision: '9b4c83354e'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.2.3', java.version: '17.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [49f2d6b668621ecf142ebcb3ad6a72e3, get {url=https://www.tarladalal.com/RecipeAtoZ.aspx?beginswith=A&pageindex=22}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 120.0.6099.109, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: /var/folders/6b/3mgvgpdx15z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51830}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51830/devtoo..., se:cdpVersion: 120.0.6099.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 49f2d6b668621ecf142ebcb3ad6a72e3]]>
+Command: [f0c90390152a527edd736038f269f220, get {url=https://www.tarladalal.com/RecipeAtoZ.aspx?beginswith=A&pageindex=11}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 120.0.6099.109, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: /var/folders/6b/3mgvgpdx15z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55675}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55675/devtoo..., se:cdpVersion: 120.0.6099.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f0c90390152a527edd736038f269f220]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
@@ -44,9 +27,9 @@ Session ID: 49f2d6b668621ecf142ebcb3ad6a72e3]]>
 Build info: version: '4.16.1', revision: '9b4c83354e'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '11.2.3', java.version: '17.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [49f2d6b668621ecf142ebcb3ad6a72e3, get {url=https://www.tarladalal.com/RecipeAtoZ.aspx?beginswith=A&pageindex=22}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 120.0.6099.109, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: /var/folders/6b/3mgvgpdx15z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51830}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51830/devtoo..., se:cdpVersion: 120.0.6099.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 49f2d6b668621ecf142ebcb3ad6a72e3
+Command: [f0c90390152a527edd736038f269f220, get {url=https://www.tarladalal.com/RecipeAtoZ.aspx?beginswith=A&pageindex=11}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome-headless-shell, browserVersion: 120.0.6099.109, chrome: {chromedriverVersion: 120.0.6099.109 (3419140ab66..., userDataDir: /var/folders/6b/3mgvgpdx15z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55675}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55675/devtoo..., se:cdpVersion: 120.0.6099.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f0c90390152a527edd736038f269f220
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -60,7 +43,7 @@ at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(Driver
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
 at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:305)
-at scrapper.DiabetesAllergy.diabetesRecipes(DiabetesAllergy.java:83)
+at scrapper.Diabetes.diabetesRecipes(Diabetes.java:86)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -95,7 +78,24 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- diabetesRecipes -->
-      </class> <!-- scrapper.DiabetesAllergy -->
+      </class> <!-- scrapper.Diabetes -->
+      <class name="scrapper.BaseClass">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:scrapper.BaseClass@305f7627]" started-at="2023-12-19T15:08:18 CST" name="setup" finished-at="2023-12-19T15:08:26 CST" duration-ms="7745" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:scrapper.BaseClass@305f7627]" started-at="2023-12-19T15:47:12 CST" name="tearDown" finished-at="2023-12-19T15:47:13 CST" duration-ms="859" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- scrapper.BaseClass -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>
