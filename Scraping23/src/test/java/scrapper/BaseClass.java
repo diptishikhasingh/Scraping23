@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -21,9 +23,9 @@ public class BaseClass {
 
 	public static WebDriver driver;
 	public static Logger logger;
-	//FirefoxOptions firefoxoptions=new FirefoxOptions();
+	FirefoxOptions firefoxoptions=new FirefoxOptions();
 	ChromeOptions chromeoptions=new ChromeOptions();
-	//EdgeOptions edgeoptions=new EdgeOptions();	
+	EdgeOptions edgeoptions=new EdgeOptions();	
 
 	
 	@Parameters("browser")
@@ -39,6 +41,7 @@ public class BaseClass {
 			if(browser.equalsIgnoreCase("firefox"))
 			{
 				WebDriverManager.firefoxdriver().setup();
+				firefoxoptions.addArguments("headless");
 				driver = new FirefoxDriver();
 				logger.info("********************FireFox Launched*********************");            
 			}
@@ -55,11 +58,12 @@ public class BaseClass {
 			else if(browser.equalsIgnoreCase("edge"))
 			{
 				WebDriverManager.firefoxdriver().setup();
+				edgeoptions.addArguments("headless");
 				driver=new EdgeDriver();
 				logger.info("********************Edge Launched*********************");
 			}
 		
-			//driver.get("https://www.tarladalal.com/");
+			//getting https://www.tarladalal.com
 			driver.get(config.getURL());
 			driver.manage().window().maximize();
 			
@@ -76,6 +80,7 @@ public class BaseClass {
 	
 	@AfterTest
 	public void tearDown() {
+		logger.info("Test suite execution completed.");
 		driver.quit();
 	}
 	

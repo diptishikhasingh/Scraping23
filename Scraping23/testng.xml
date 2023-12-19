@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="ChromeTest">
+  <test thread-count="1" name="ChromeTest">
   <parameter name="browser" value="chrome" />
     <classes>
       <class name="scrapper.BaseClass"/>
-      <class name="scrapper.Diabetes" />
+      <class name="scrapper.Diabetes"/>
+      <class name="scrapper.DiabetesAllergy"/>
+      <class name="scrapper.DiabeticRecipesFromRecipeList"/>
+      <class name="scrapper.HighBloodPressure"/>
+      <class name="scrapper.Hypothyroidism"/>
+      <class name="scrapper.pcos"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

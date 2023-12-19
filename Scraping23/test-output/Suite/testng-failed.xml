@@ -4,13 +4,13 @@
   <test thread-count="5" name="ChromeTest(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="scrapper.Diabetes">
+      <class name="scrapper.DiabetesAllergy">
         <methods>
           <include name="tearDown"/>
           <include name="diabetesRecipes"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- scrapper.Diabetes -->
+      </class> <!-- scrapper.DiabetesAllergy -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->
