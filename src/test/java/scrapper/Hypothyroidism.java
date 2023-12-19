@@ -29,11 +29,11 @@ public class Hypothyroidism extends BaseClass{
 	
 	static boolean matchFound=false;
 	
-	public static String toEliminateIngredientsAllergy=toEliminateIngredients+"Milk|Soy|Egg |Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
-	public static String toEliminateRecipeNameAllergy=toEliminateRecipeName+"Milk|Soy|Egg |Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|sscallops|octopus|squid|abalone|snail|Seafood";
+	public static String toEliminateIngredientsAllergy=toEliminateIngredients+"Milk|Soy|Egg |Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|scallops|octopus|squid|abalone|snail|Seafood|Salmon|Tuna|Tilapia|Pollock|Catfish";
+	public static String toEliminateRecipeNameAllergy=toEliminateRecipeName+"Milk|Soy|Egg |Sesame|Peanuts|walnut|almond|hazelnut|pecan|cashew|pistachio|Shell fish|shrimp|prawns|crab|lobster|clam|mussels|oyster|scallops|octopus|squid|abalone|snail|Seafood|Salmon|Tuna|Tilapia|Pollock|Catfish";
 
-	public static String toAddIngredients="Saltwater fish|Tuna|Salmon|Wahoo|Red Snapper|Drum|Black drum|redfish|oyester|shellfish|Egg|Dairy|milk|Yogurt|Butter|Cheese|cream|Nut|Chicken|Pumpkin seed|Seaweed|Iodized salt|Brazil nut|Blue berry|Blue berries|Low-fat yogurt|Brown rice|quinoa|Mushroom";
-	public static String toAddRecipeName="Saltwater fish|Tuna|Salmon|Wahoo|Red Snapper|Drum|Black drum|redfish|oyester|shellfish|Egg|Dairy|milk|Yogurt|Butter|Cheese|cream|Nut|Chicken|Pumpkin seed|Seaweed|Iodized salt|Brazil nut|Blue berry|Blue berries|Low-fat yogurt|Brown rice|quinoa|Mushroom";
+	public static String toAddIngredients="Saltwater fish|Tuna|Salmon|Wahoo|Red Snapper|Drum|Black drum|redfish|oyester|shellfish|shrimp|prawns|crab|lobster|clam|mussels|oyster|scallops|octopus|squid|abalone|snail|Egg|Dairy|milk|Yogurt|Butter|Cheese|cream|Nut|Chicken|Pumpkin seed|Seaweed|Iodized salt|Brazil nut|Blue berry|Blue berries|Low-fat yogurt|Brown rice|quinoa|Mushroom";
+	public static String toAddRecipeName="Saltwater fish|Tuna|Salmon|Wahoo|Red Snapper|Drum|Black drum|redfish|oyester|shellfish|shrimp|prawns|crab|lobster|clam|mussels|oyster|scallops|octopus|squid|abalone|snail||Egg|Dairy|milk|Yogurt|Butter|Cheese|cream|Nut|Chicken|Pumpkin seed|Seaweed|Iodized salt|Brazil nut|Blue berry|Blue berries|Low-fat yogurt|Brown rice|quinoa|Mushroom";
 	
 	public static String recipieId="";
 	public static String recipieName="";
